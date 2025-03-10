@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_10_151244) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_10_152625) do
+  create_table "completions", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "learningmodule_id", null: false
+    t.string "submission_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["learningmodule_id"], name: "index_completions_on_learningmodule_id"
+    t.index ["user_id"], name: "index_completions_on_user_id"
+  end
+
+  create_table "learningmodules", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["position"], name: "index_learningmodules_on_position"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -22,4 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_10_151244) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "completions", "learningmodules"
+  add_foreign_key "completions", "users"
 end

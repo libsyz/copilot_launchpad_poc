@@ -1,0 +1,2 @@
+class Learningmodule < ApplicationRecord
+end
