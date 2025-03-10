@@ -1,1 +1,39 @@
-<h1 class="text-4xl font-bold text-blue-600 text-center mt-8">Hello World</h1>
+<section class="mt-12">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-6">Your Learning Progress</h2>
+  
+  <div class="grid grid-cols-4 gap-6">
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center gap-3">
+        <i class="fas fa-clock text-blue-500 text-xl"></i>
+        <h3 class="text-lg font-medium text-gray-600">Time Required</h3>
+      </div>
+      <p class="text-3xl font-bold text-gray-900 mt-2">16 hours</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center gap-3">
+        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+        <h3 class="text-lg font-medium text-gray-600">Completed</h3>
+      </div>
+      <p class="text-3xl font-bold text-gray-900 mt-2">0 Modules</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center gap-3">
+        <i class="fas fa-spinner text-yellow-500 text-xl"></i>
+        <h3 class="text-lg font-medium text-gray-600">In Progress</h3>
+      </div>
+      <p class="text-3xl font-bold text-gray-900 mt-2">0 Modules</p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6">
+      <div class="flex items-center gap-3">
+        <i class="fas fa-tasks text-purple-500 text-xl"></i>
+        <h3 class="text-lg font-medium text-gray-600">Remaining</h3>
+      </div>
+      <p class="text-3xl font-bold text-gray-900 mt-2">6 Modules</p>
+    </div>
+  </div>
+</section>
+
+<%= render "shared/learning_module_card" %>
