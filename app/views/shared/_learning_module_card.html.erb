@@ -3,20 +3,30 @@
     <div class="p-6">
       <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-6">
         <div class="flex-1">
-          <h2 class="text-2xl font-bold text-gray-900 mb-2">Welcome and Introduction</h2>
-          <p class="text-gray-600">Learn about this Track, its importance and how it works</p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-2"> <%= title %></h2>
+          <p class="text-gray-600"> <%= description %></p>
         </div>
 
         <div class="flex-2">
-          <div class="flex items-center gap-4 w-full sm:w-auto">
+          <div class="flex justify-end items-center gap-4 w-full sm:w-auto">
             <div class="flex items-center gap-2 text-gray-600">
               <i class="fas fa-clock text-blue-500"></i>
               <span>15 min</span>
             </div>
             
-            <button class="text-base font-medium rounded-lg shadow-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Go to Course
-            </button>
+            <% if current_user.has_completed_previous?(learning_module) %>
+            
+              <%= link_to "Go to Course", dashboard_path(learning_module), class: "text-base font-medium rounded shadow-lg px-6 py-3 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-all duration-200" %>
+
+            <% else %>
+
+              <button disabled class="text-base font-medium rounded shadow-lg px-6 py-3 text-base font-medium text-gray-500 bg-gray-200 cursor-not-allowed flex items-center gap-2">
+                <i class="fas fa-lock"></i>
+                Locked
+              </button>
+
+            <% end %>
+        
           </div>
         </div>
       </div>

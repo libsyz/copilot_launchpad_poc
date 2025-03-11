@@ -36,4 +36,9 @@
   </div>
 </section>
 
-<%= render "shared/learning_module_card" %>
+<% @learning_modules.each do |learning_module| %>
+    <%= render "shared/learning_module_card", 
+        learning_module: learning_module,
+        title: learning_module.title, 
+        description: learning_module.description %>
+<% end %>
